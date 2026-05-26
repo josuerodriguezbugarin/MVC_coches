@@ -1,4 +1,3 @@
-import java.lang.module.ModuleDescriptor;
 import java.util.List;
 
 /**
@@ -6,7 +5,7 @@ import java.util.List;
  * Se encarga de coordinar el flujo de datos entre la interfaz de usuario (View)
  * y la lógica de negocio o almacenamiento (Model).
  * * @author Josué
- * @version 1.0
+ * @version 3.0
  */
 public class Controller {
 
@@ -23,31 +22,6 @@ public class Controller {
      */
     public static void main(String[] args) {
         miView.menu();
-
-        /*
-        // Bloque de pruebas desactivado:
-        // Instanciamos la vista y el modelo
-        View miView = new View();
-        Model miModel = new Model();
-
-        // Crear tres coches
-        miModel.crearCoche("LaFerrari", "SBC 1234");
-        miModel.crearCoche("Alpine", "HYU 4567");
-        miModel.crearCoche("Aston Martin", "FGH 3333");
-
-        Coche ferrari = miModel.getCoche("SBC 1234");
-        // modifica la velocidad
-        int nuevaVelocidad = miModel.cambiarVelocidad("SBC 1234", 30);
-
-        // recoje la velocidad y la muestra (tarea de la View)
-        boolean hecho = miView.muestraVelocidad("SBC 1234", miModel.getVelocidad("SBC 1234"));
-
-        if (hecho) {
-            System.out.println("[LOG] Correcto");
-        } else {
-            System.out.println("[LOG] Error");
-        }
-        */
     }
 
     /**
@@ -77,12 +51,24 @@ public class Controller {
     }
 
     /**
-     * Intercepta la petición de la Vista para hacer avanzar (incrementar km) un coche.
+     * Intercepta la petición de la Vista para hacer avanzar un coche pasándole los metros.
      * * @param matricula La matrícula del coche que debe avanzar.
+     * @param metros Cantidad de metros que se sumarán al recorrido.
      * @return El objeto {@link Coche} actualizado, o {@code null} si no se encuentra.
      */
-    public Coche atenderAvanzarCoche(String matricula) {
-        Coche cocheActualizado = database.hacerAvanzarCoche(matricula);
+    public Coche atenderAvanzarCoche(String matricula, int metros) {
+        Coche cocheActualizado = database.hacerAvanzarCoche(matricula, metros);
+        return cocheActualizado;
+    }
+
+    /**
+     * Intercepta la petición de la Vista para añadir litros de gasolina al depósito de un coche.
+     * * @param matricula La matrícula del coche que va a repostar.
+     * @param litros Cantidad de gasolina en litros que se desea cargar.
+     * @return El objeto {@link Coche} actualizado, o {@code null} si no se encuentra en el sistema.
+     */
+    public Coche atenderCargarGasolina(String matricula, double litros) {
+        Coche cocheActualizado = database.repostarCoche(matricula, litros);
         return cocheActualizado;
     }
 

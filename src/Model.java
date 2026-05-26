@@ -6,7 +6,7 @@ import java.util.List;
  * Actúa como el repositorio centralizado (simulando una base de datos en memoria)
  * para administrar los vehículos estacionados en el parking.
  * * @author Josué
- * @version 1.0
+ * @version 3.0
  */
 public class Model {
 
@@ -69,15 +69,29 @@ public class Model {
     }
 
     /**
-     * Incrementa en una unidad el kilometraje acumulado de un coche específico.
+     * Incrementa el kilometraje acumulado de un coche y descuenta combustible según los metros indicados.
      * * @param matricula La matrícula del coche que va a avanzar.
-     * @return El objeto {@link Coche} con su kilometraje actualizado,
-     * o {@code null} si el coche no existe.
+     * @param metros Cantidad de metros que el coche se desplazará.
+     * @return El objeto {@link Coche} con sus valores actualizados, o {@code null} si no existe.
      */
-    public Coche hacerAvanzarCoche(String matricula) {
+    public Coche hacerAvanzarCoche(String matricula, int metros) {
         Coche aux = getCoche(matricula);
         if (aux != null) {
-            aux.km++;
+            aux.acumularMetros(metros);
+        }
+        return aux;
+    }
+
+    /**
+     * Añade litros de gasolina al depósito de un coche específico localizado por su matrícula.
+     * * @param matricula La matrícula del coche a repostar.
+     * @param litros Cantidad de litros de combustible a ingresar.
+     * @return El objeto {@link Coche} con el nivel de gasolina actualizado, o {@code null} si no existe.
+     */
+    public Coche repostarCoche(String matricula, double litros) {
+        Coche aux = getCoche(matricula);
+        if (aux != null) {
+            aux.recargarCombustible(litros);
         }
         return aux;
     }
