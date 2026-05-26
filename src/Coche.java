@@ -2,6 +2,8 @@
  * Representa un vehículo terrestre de tipo Coche.
  * Permite gestionar la información básica del automóvil, como su modelo,
  * matrícula, velocidad actual y el kilometraje acumulado.
+ * * @author Josué
+ * @version 1.0
  */
 public class Coche {
 

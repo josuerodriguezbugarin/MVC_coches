@@ -5,6 +5,8 @@ import java.util.List;
  * Clase encargada de manejar y gestionar los datos del sistema.
  * Actúa como el repositorio centralizado (simulando una base de datos en memoria)
  * para administrar los vehículos estacionados en el parking.
+ * * @author Josué
+ * @version 1.0
  */
 public class Model {
 

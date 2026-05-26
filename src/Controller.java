@@ -5,6 +5,8 @@ import java.util.List;
  * Clase que actúa como el Controlador en el patrón MVC (Modelo-Vista-Controlador).
  * Se encarga de coordinar el flujo de datos entre la interfaz de usuario (View)
  * y la lógica de negocio o almacenamiento (Model).
+ * * @author Josué
+ * @version 1.0
  */
 public class Controller {
 

@@ -5,6 +5,8 @@ import java.util.List;
  * Clase encargada de la interfaz de usuario del sistema (Vista).
  * Proporciona un menú textual por consola para interactuar con el usuario,
  * capturar sus entradas y mostrar los resultados devueltos por el controlador.
+ * * @author Josué
+ * @version 1.0
  */
 public class View {
 
