@@ -69,3 +69,6 @@ sequenceDiagram
     View-->>Controller: boolean
     deactivate View
 ```
+## Capturas de pantalla Javadoc
+![img.png](img.png)
+![img_1.png](img_1.png)
