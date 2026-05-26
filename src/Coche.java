@@ -34,7 +34,7 @@ public class Coche {
         this.matricula = matricula;
         this.velocidad = 0;
         this.km = 0.0;
-        this.gasolina = 50.0; // Depósito inicial por defecto
+        this.gasolina = 50.0;
     }
 
     /**
@@ -56,20 +56,18 @@ public class Coche {
     public void acumularMetros(int metros) {
         if (metros <= 0) return;
 
-        // Fórmula de consumo: influye directamente la velocidad actual
         double consumo = (metros * this.velocidad) / 100000.0;
 
         if (this.gasolina >= consumo) {
             this.gasolina -= consumo;
             this.km += (metros / 1000.0);
         } else {
-            // Si no tiene suficiente gasolina, consume lo que le queda y avanza de forma proporcional
             if (this.velocidad > 0) {
                 double metrosPosibles = (this.gasolina * 100000.0) / this.velocidad;
                 this.km += (metrosPosibles / 1000.0);
             }
             this.gasolina = 0.0;
-            this.velocidad = 0; // El coche se apaga y se detiene
+            this.velocidad = 0;
         }
     }
 }

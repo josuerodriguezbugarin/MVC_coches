@@ -26,7 +26,7 @@ public class View {
             System.out.println("1. Agregar Coche");
             System.out.println("2. Quitar Coche");
             System.out.println("3. Avanzar Coche (Metros)");
-            System.out.println("4. Cargar Gasolina (Litros)"); // <- NUEVA OPCIÓN
+            System.out.println("4. Cargar Gasolina (Litros)");
             System.out.println("5. Añadir velocidad");
             System.out.println("6. Mostrar velocidad del coche");
             System.out.println("7. Coches en el parking");
@@ -90,7 +90,7 @@ public class View {
                     }
                     break;
 
-                case 4: // NUEVO CASO IMPLEMENTADO
+                case 4:
                     System.out.println("\n--- Cargar Gasolina ---");
                     System.out.print("Introduce la matrícula: ");
                     String matriculaGas = teclado.nextLine();
@@ -117,7 +117,7 @@ public class View {
                     System.out.print("Introduce la nueva velocidad: ");
 
                     Integer v = teclado.nextInt();
-                    teclado.nextLine(); // Limpia el buffer
+                    teclado.nextLine();
 
                     int velocidadNueva = c.atenderCambiarVelocidad(matricula4, v);
                     if (velocidadNueva != -1) {
@@ -127,7 +127,7 @@ public class View {
                     }
                     break;
 
-                case 5 + 1: // Caso 6
+                case 5 + 1:
                     System.out.println("\n--- Mostrar velocidad del coche ---");
                     System.out.print("Introduce la matrícula del coche: ");
                     String matricula5 = teclado.nextLine();
